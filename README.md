@@ -1,9 +1,9 @@
 
 # Advent Of Code 2023 Notes
 
-### Maxwell Cannon
+## Maxwell Cannon
 
-**12/1/2023** - *12:38am* - Finished Day 1 parts one and two. Total Time: 34:18  
+**12/1/2023** - *12:38am* - Day 1 Complete - Total Time: 34:18  
 > Reflections - Pretty easy. Knocking the rust off, but got it wrapped up  
 
 
