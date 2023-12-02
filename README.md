@@ -3,6 +3,11 @@
 
 ## Maxwell Cannon
 
+**12/2/2023** - *time* - Day 2 Complete - Total Time: 27:56
+> Today was a tough start but pretty easy concept. Part 2 was super easy once I had the framework for part 1. I feel like I'm getting warmed up. Usually day 3 is when it hits me though.
+
+**12/1/2023** - *11:58pm* - Day2 prep work
+
 **12/1/2023** - *12:38am* - Day 1 Complete - Total Time: 34:18  
 > Reflections - Pretty easy. Knocking the rust off, but got it wrapped up  
 
