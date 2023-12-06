@@ -160,7 +160,8 @@ def buildnum(y, x, pos):
     elif pos == "pos8":
         starty = y + 1
         startx = x + 1
-
+    
+    print(pos)
     tempnum = ""
     while lines[starty][startx].isnumeric() and startx > 0 and startx <= len(lines[starty]):
         startx -= 1
@@ -173,10 +174,10 @@ def buildnum(y, x, pos):
     try:
         return int(tempnum)
     except:
-        pass  
+        return 0
 
 
-print(buildnum(1, 3, "pos1"))
+# print(buildnum(1, 3, "pos1"))
 
 poslist = ["pos1", "pos2", "pos3", "pos4", "pos5", "pos6", "pos7", "pos8"]
 
@@ -184,6 +185,7 @@ for y in range(len(lines)):
     for x in range(len(lines[y])):
         if lines[y][x] == "*":
             for pos in poslist:
+                print(pos)
                 print(buildnum(x, y, pos))
 
 
