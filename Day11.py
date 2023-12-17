@@ -1,4 +1,5 @@
 #Advent 2023 Day 11
+import math as m
 
 lines = open('day11in.txt').read().splitlines()
 space = lines
@@ -36,12 +37,30 @@ def expandgals():
             x+=1
         x += 1
     
-
-def pt1main():
-    return False
-
 expandgals()
-
-
 for l in space:
     print(l)
+
+def getgals():
+    outarr = []
+    for y in range(len(space)):
+        for x in range(len(space[y])):
+            if space[y][x] == "#":
+                outarr.append([x, y])
+    print(outarr)
+    return outarr
+
+gals = getgals()
+
+def measuredist(p1, p2):
+    dist = m.fabs(p2[0]-p1[0]) + m.fabs(p2[1]-p1[1])
+    print(int(dist))
+    return int(dist)
+
+
+totalsum = 0
+for i in range(len(gals)):
+    for j in range(i+1, len(gals)):
+        totalsum += measuredist(gals[i], gals[j])
+print(totalsum)
+    
