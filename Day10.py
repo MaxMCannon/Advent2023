@@ -14,7 +14,7 @@ def findstart():
                 return [x, y]
 
 startpos = findstart() ### x, y            
-print(startpos)
+# print(startpos)
 currpos = startpos
 dir = 0 ## 0-up 1-right 2-down 3-left
 
@@ -24,6 +24,10 @@ dir = 0 ## 0-up 1-right 2-down 3-left
 # J is a 90-degree bend connecting north and west.
 # 7 is a 90-degree bend connecting south and west.
 # F is a 90-degree bend connecting south and east.
+
+def getsym(pos):
+    return lines[pos[1]][pos[0]]
+
 
 def changedir(dir, sym):
     if dir == 0 and sym == "|":
@@ -65,8 +69,17 @@ def movedir(dir):
     if dir == 3:
         currpos[0] -= 1
     return 0
-for y in range(len(lines)):
-    for x in range(len(lines[y])):
-        break
-    break
+
+### Set starting condition from input
+dir = 0
+movedir(dir)
+
+steps = 1
+while getsym(currpos) != "S":
+    print(currpos)
+    movedir(dir)
+    dir = changedir(dir, getsym(currpos))
+    steps += 1
+
+print("P1 ans : "+ str(int(steps/2)))
 

@@ -47,7 +47,7 @@ def getgals():
         for x in range(len(space[y])):
             if space[y][x] == "#":
                 outarr.append([x, y])
-    print(outarr)
+    # print(outarr)
     return outarr
 
 gals = getgals()

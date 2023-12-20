@@ -26,16 +26,16 @@ def tonums(nums):
 seeds = tonums(input[0].split(": ")[1].split(' '))
 print("seeds = " + str(seeds))
 
-# def buildlinemap(map):
-#     outmap = {}
-#     deststart = map[0]
-#     sourcestart = map[1]
-#     length = map[2]
-#     k = 0 
-#     for i in range(sourcestart, sourcestart + length):
-#         outmap.setdefault(i, deststart + k)
-#         k += 1
-    # return outmap
+def buildlinemap(map):
+    outmap = {}
+    deststart = map[0]
+    sourcestart = map[1]
+    length = map[2]
+    k = 0 
+    for i in range(sourcestart, sourcestart + length):
+        outmap.setdefault(i, deststart + k)
+        k += 1
+    return outmap
 
 def checkline(seed, map):
     deststart = map[0]
@@ -75,14 +75,13 @@ def convertseed(seed):
         
     return arr
 
-# print("path = " + str(convertseed(14)))
+print("path = " + str(convertseed(14)))
       
+# lowest = 999999999999999999999999999999999999
 
-for s in seeds:
-    print(convertseed(s))
-    if convertseed(s) < lowest:
-        lowest = convertseed(s)
+# for s in seeds:
+#     print(convertseed(s))
+#     if convertseed(s)[-1] < lowest:
+#         lowest = convertseed(s)
     
-print(lowest)
-
-
+# print(lowest)
