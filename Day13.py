@@ -73,9 +73,6 @@ def findhor(map):
 
     return -1
 
-
-
-
 sum = 0
 for i in range(len(maps)):
     if findhor(maps[i]) == -1:
