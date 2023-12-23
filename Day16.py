@@ -21,6 +21,18 @@ def looknext(light):
     elif dir == 3:
         return map[ypos][xpos-1]
 
+def updatepos(light):
+    dir = light[2]
+    if dir == 0:
+        light[1] -= 1
+    if dir == 2:
+        light[1] += 1
+    if dir == 1:
+        light[0] += 1
+    if dir == 3:
+        light[0] -= 1
+    return light
+
 def splitter(light):
     xpos = light[0]
     ypos = light[1]
@@ -38,7 +50,6 @@ def splitter(light):
         lights.append([xpos, ypos+1, 0])
         lights.append([xpos, ypos-1, 2])
 
-
 def checkrange(light):
     for i in light:
         if i < 0 or i > len(map):
@@ -52,7 +63,20 @@ def fixlights():
 
 
 print(lights)
-splitter(lights[0])
+
+if looknext(lights[0]) == ".":
+    lights[0] = updatepos(lights[0])
+elif looknext(lights[0]) == "|" or looknext(lights[0]) == "-":
+    updatepos(lights[0])
+    splitter(lights[0])
+    fixlights()
+
 print(lights)
-fixlights()
+
+if looknext(lights[1]) == ".":
+    lights[1] = updatepos(lights[1])
+elif looknext(lights[1]) == "|" or looknext(lights[1]) == "-":
+    splitter(lights[1])
+    fixlights()
+
 print(lights)
