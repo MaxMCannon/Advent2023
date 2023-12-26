@@ -2,6 +2,7 @@
 
 #example is 6 more steps
 #problem is 64 more steps
+import time
 
 map = open('day21in.txt').read().splitlines()
 
