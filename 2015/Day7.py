@@ -13,6 +13,9 @@ def getbit(num):
 def getnum(bi):
     return int(bi, 2)
 
+def customnot(num):
+    pass
+
 cmap = {}
 
 
@@ -32,7 +35,16 @@ for c in circuit:
         dir = inst.split(' ')
         if len(dir) == 2:
             if dir[0] == 'NOT':
-                cmap[outwire] = getnum(getbit(cmap[dir[-1]]))
+                cmap[outwire] = getnum(getbit(255) - getbit(int(dir[-1])))
+        else:
+            if dir[1] == 'AND':
+                cmap[outwire] = cmap[dir[0]] & cmap[dir[-1]]
+            if dir[1] == 'OR':
+                cmap[outwire] = cmap[dir[0]] | cmap[dir[-1]]
+            if dir[1] == 'LSHIFT':
+                cmap[outwire] = cmap[dir[0]] << int(dir[-1])
+            if dir[1] == 'RSHIFT':
+                cmap[outwire] = cmap[dir[0]] >> int(dir[-1])
 print(cmap)
 
 
