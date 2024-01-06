@@ -1,34 +1,54 @@
 #Advent 2015, Day 10
 #Maxwell Cannon
 #January 2, 2024
+import copy
 
 puzz = open('2015/input.txt').read()
 
 outarr = [puzz]
 
-print(puzz)
-
-nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-
 run = 0
 
-while run < 5:
-    count = 0
-    tempnum = ''
-    currnum = ''
-    switch = True
-    st = outarr[-1]
-    for i in range(1, len(outarr[-1])):
-        print(outarr[-1])
-        currnum = st[i-1]
-        print(currnum)
-        if st[i] == st[i-1]:
+def createarr(line):
+    outarr = []
+    for c in line:
+        outarr.append(c)
+    return outarr
+
+# while run < 5:
+#     newnum = ''
+#     curnum = str(copy.deepcopy(outarr[-1]))
+#     print(curnum)
+#     curdig = curnum[0]
+#     count = 0
+#     for i in range(len(curnum)):
+#         if curnum[i] == curdig:
+#             count += 1
+#         if curnum[i] != curdig:
+#             newnum += str(count)
+#             newnum += curdig
+#             curdig = curnum[i]
+#             count = 1
+#     print(newnum)
+#     outarr.append(newnum)
+#     run += 1
+
+def step(num):
+    outnum = ''
+    count = 1
+    char = 0
+    while char < len(num)-1:
+        if num[char] == num[char+1]:
             count += 1
+            char += 1
         else:
-            tempnum = str(count) + currnum
-    outarr.append(tempnum)
+            outnum += (str(count) + num[char])
+            count = 1
+            char += 1
+            
+    # print(outnum)
+    return outnum
 
-
-    run += 1
+print(step(puzz))
 
 print(outarr)
