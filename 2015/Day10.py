@@ -35,20 +35,36 @@ def createarr(line):
 
 def step(num):
     outnum = ''
-    count = 1
-    char = 0
-    while char < len(num)-1:
-        if num[char] == num[char+1]:
-            count += 1
-            char += 1
-        else:
-            outnum += (str(count) + num[char])
-            count = 1
-            char += 1
-            
-    # print(outnum)
-    return outnum
+    count = 0
+    cur = num[0]
+    if len(num) == 1:
+        return ('1' + str(num)) + 'x'
+    else:
+        for i in range(len(num)):
+            n = num[i]
+            if i == len(num):
+                if n == cur:
+                    outnum = outnum + str(count)
+                    outnum = outnum + n
+                else:
+                    outnum = outnum + '1'
+                    outnum = outnum + n
+                return outnum + 'x'
+            if n == cur:
+                count += 1
+            else:
+                outnum = outnum + str(count)
+                outnum = outnum + cur
+                cur = n
+                count = 1
+        # print(outnum)
+        return outnum + 'x'
 
-print(step(puzz))
+run = 0
+while run < 50:
+    # print(outarr[-1])
+    outarr.append(step(outarr[-1]))
+    run += 1
 
-print(outarr)
+# print(outarr)
+print(len(outarr[-1])-1)
